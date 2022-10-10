@@ -120,3 +120,37 @@ int main ()
 	printf("%zu\n",strlcat(dst1,src2,13));
 	printf("%s",dst1);
 }
+//ft_toupper
+int main ()
+{
+    printf("%c\n",ft_toupper('A'));
+    printf("%c",toupper('A'));
+    
+}
+//ft_strchr
+int main ()
+{
+	const char str[]="NULL";
+	const char str2[]="NULL";
+	printf("%s\n",ft_strchr(str,'k'));
+	printf("%s",strchr(str2,'k'));
+
+}
+//strrchr
+int main ()
+{
+	const char str[]=NULL;
+	const char str2[]=NULL;
+	printf("%s\n",ft_strrchr(NULL,'L'));
+	printf("%s",strrchr(NULL,'L'));
+
+}
+//strncmp
+int main()
+{
+	char *s1 = NULL;
+	char *s2 = NULL;
+	printf("%d\n",ft_strncmp(s1,s2,6));
+	printf("%d\n",strncmp(s1,s2,6));
+
+}
