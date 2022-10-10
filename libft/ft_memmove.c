@@ -3,11 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasserao <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:37:15 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/07 19:41:46 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/08 15:40:59 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
+void	*ft_memmove(void *dst, const void *src, size_t len)
 
+{
+	size_t	i;
+
+	if (dst < src)
+	{
+		i = 0;
+		while (i < len)
+		{
+			((char *)dst)[i] = ((char *)src)[i];
+			i++;
+		}
+	}
+	else
+	{
+		while (len > 0)
+		{
+			((char *)dst)[len - 1] = ((char *)src)[len - 1];
+			len--;
+		}
+	}
+	return (dst);
+}
