@@ -154,3 +154,19 @@ int main()
 	printf("%d\n",strncmp(s1,s2,6));
 
 }
+//memchr
+int main ()
+{
+	char *p = "life is shard";
+	printf("%s\n",ft_memchr(p,'p',ft_strlen (p)));
+	printf("%s",memchr(p,'p',ft_strlen (p)));
+}
+//memcmp
+int main ()
+{
+	const char s1[] = "atoms\0z";
+	const char s2[] = "atoms\0a";
+	printf("%d\n",ft_memcmp (s1,s2,7));
+	printf("%d",memcmp (s1,s2,7));
+
+}
