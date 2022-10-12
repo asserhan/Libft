@@ -13,19 +13,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i ;
+	char *p;
 
-	i = ft_strlen(s);
-	if (c == 0)
+	p = NULL;
+	while (*s)
 	{
-		return ((char *)s);
-	}
-	while (i--)
-	{
-		if (s[i] == c)
+		if (*s!= c)
+		 	s++;
+		else
 		{
-			return ((char *)s + i);
+			p = (char *)s;
+			s++;
 		}
 	}
-	return (NULL);
+	if (c == '\0')
+		return ((char *)s);
+	return (p);
 }

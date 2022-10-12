@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 19:34:46 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/10 19:34:50 by hasserao         ###   ########.fr       */
+/*   Created: 2022/10/11 20:17:31 by hasserao          #+#    #+#             */
+/*   Updated: 2022/10/11 20:17:38 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	
-	i = 0;
-	while ((*(unsigned char*)s1 || *(unsigned char*)s2) && i < n)
+	int result;
+	int sign;
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || *str == '\t' || *str == '\v' || *str == '\n' || *str == '\f' || *str == '\r');
+	if (*str =='-')
 	{
-		if (*(unsigned char*)s1 > *(unsigned char*)s2)
-			return (*(unsigned char*)s1 - *(unsigned char*)s2);
-		else
-			if (*(unsigned char*)s1 < *(unsigned char*)s2)
-				return (*(unsigned char*)s1 - *(unsigned char*)s2);
-		s1++;
-		s2++;
-		i++;
+		sign *= -1;
+		str++;
 	}
-	return (0);
+	while (*str && *str >='0' && *str <='9')
+	{
+		result = result*10 + *str - '0';
+		str++;
+	}
+	return (result);
 }
+/*int main()
+{
+	printf("%d\n",ft_atoi("-12445"));
+	printf("%d",atoi("-12445"));
+}*
+

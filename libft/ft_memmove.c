@@ -16,6 +16,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
+	if (src == dst || !len)
+		return (dst);
 	if (dst < src)
 	{
 		i = 0;
@@ -35,7 +37,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-int main()
+/*int main()
 {
 	int i;
 	//int j;
@@ -50,4 +52,4 @@ int main()
 		i++;
 	}
 	printf("\n");
-}
+}*/
