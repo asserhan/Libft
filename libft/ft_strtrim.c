@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 20:17:31 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/11 20:17:38 by hasserao         ###   ########.fr       */
+/*   Created: 2022/10/13 11:11:11 by hasserao          #+#    #+#             */
+/*   Updated: 2022/10/13 11:11:17 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
-int ft_atoi(const char *str)
+int find_set (char const *set,char x)
 {
-	long int result;
-	int sign;
-	result = 0;
-	sign = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\v' || *str == '\n' || *str == '\f' || *str == '\r')
+	while(*set)
 	{
-		str++;
+		if(*set == x)
+			return(1);
+		set++;
 	}
-	if (*str =='-' || *str == '+')
-	{
-		if(*str == '-')
-			sign *= -1;
-			str++;
-	}
-	while (*str && *str >='0' && *str <='9')
-	{
-		result = result * 10 + *str - '0';
-		str++;
-	}
-	return (result * sign);
+	return(0);
 }
+char    *ft_strtrim(char const *s1, char const *set)
+{
+	size_t i;
+	size_t j;
+	char *p;
+    if(!s1 || !set)
+        return(NULL);
+	else
+	{
+		i= 0;
+		j = ft_strlen (s1) - 1;
+		
+		while (s1[i] && find_set(set,s1[i]))
+				i++;
+		while(s1[j] && find_set(set,s1[j]))
+				j--;
+		p = ft_substr(s1,i,(j - i) + 1);//+1 :->'\0'
+	}
+	return (p);
+}
+
 
