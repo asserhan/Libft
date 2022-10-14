@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 16:09:15 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/14 12:06:05 by hasserao         ###   ########.fr       */
+/*   Created: 2022/10/14 12:39:43 by hasserao          #+#    #+#             */
+/*   Updated: 2022/10/14 14:35:19 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "libft.h"
+#include "libft.h"
 
-char    *ft_itoa(int n)
+void	ft_striteri(char *s, void (*f)(unsigned int,char*))
 {
-    char *p;
-    int base;
-}*/
+	size_t i;
+	if (s && f)
+	{
+	i = 0;
+	while (s[i])
+	{
+		f(i,&s[i]);
+		i++;
+	}
+	}
+}
+

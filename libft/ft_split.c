@@ -6,11 +6,11 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:30:20 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/13 18:24:43 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:06:25 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/*#include "libft.h"
 
 size_t is_delimiter(char const *str, char x)
 {
@@ -22,11 +22,19 @@ size_t is_delimiter(char const *str, char x)
 	}
 	return(0);
 }
-
+size_t n_word(char const *s,char c)
+{
+	while(*s)
+	{
+		if(*s == c)
+			s++;
+		
+	}
+}
 char	**ft_split(char const *s, char c)
 {
 	if (!s)
-		return (NULL)
+		return (NULL);
 	char **p;
 	size_t count;
 	size_t len_p;
@@ -35,7 +43,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;	
 	count = 0;
-	while (*s && is_delimiter(s,c))
+	while (*s++ && is_delimiter(s,c))
 			count++;
 	len_p = count + 1;
 	p = (char **)malloc(len_p + 1 * sizeof(char *));
@@ -55,5 +63,4 @@ char	**ft_split(char const *s, char c)
 			j++;
 		}
 	}	
-}
-
+}*/
