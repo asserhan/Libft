@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasserao <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 20:55:25 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/12 20:55:30 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:50:21 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
+
 char    *ft_substr(char const *s, unsigned int start,size_t len)
 {
      char *p;

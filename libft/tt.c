@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   tt.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:39:05 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/16 15:48:29 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:44:06 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	nbr_words(char const *s, char c)
+size_t nbr_words(char const *s,char c)
 {
 	int i;
 	int word;
@@ -20,9 +20,9 @@ size_t	nbr_words(char const *s, char c)
 	word = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] != c)  
 		{
-			word++;
+            word++;
 			while (s[i] && s[i] != c)
 				i++;
 		}
@@ -31,43 +31,38 @@ size_t	nbr_words(char const *s, char c)
 	}
 	return (word);
 }
-void next_word(const char *s,size_t *begin,size_t *end,char c)
-{
-		while (s[*begin] == c)
-			(*begin)++;
-		*end = *begin;
-		while (s[*end] && s[*end] != c)
-			(*end)++;
-}
-
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strings;
-	size_t	begin;
-	size_t	end;
-	size_t	i;
-
+	char **strings;
+	size_t begin;
+	size_t end;
+	size_t i;
+	
 	if (!s || !c)
 		return (NULL);
-	strings = malloc((nbr_words(s, c) + 1) * sizeof(char *));
+	strings = malloc((nbr_words(s,c) + 1) * sizeof (char *));
 	if (!strings)
 		return (NULL);
 	begin = 0;
-	end = 0;
+	end = 0; 
 	i = 0;
-	while (i < nbr_words(s, c))
+	while (i < nbr_words(s,c))
 	{
-		next_word(s, &begin, &end,c);
-		strings[i++] = ft_substr(s, begin, (end - begin));
-		if (strings[i - 1] == NULL)
-			free(strings[i - 1]);
-		begin = end;
+		while (s[begin] == c)
+			begin++;
+		end = begin;
+		while (s[end] && s[end] != c)
+			end++;
+		strings[i] = ft_substr(s,begin,(end - begin));
+		begin = end;	
+        i++;
 	}
 	strings[i] = NULL;
 	return (strings);
 }
-int main ()
+
+/*int main () 
 {
 
 	char *s =",,,ab,,cd,gh";
@@ -81,4 +76,5 @@ int main ()
 		i++;
 	}
 
-}
+}*/
+  
