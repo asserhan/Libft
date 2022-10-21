@@ -6,16 +6,20 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 17:21:06 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/14 17:27:33 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/20 10:03:51 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t n;
-	n =ft_strlen(s);
-	if(s!=NULL)
-		write(fd,s,n);
+	size_t len;
+	if (s != NULL)
+	{
+		len =ft_strlen(s);
+		write(fd,s,len);
+	}
 }
+
 

@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasserao <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:11:11 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/13 11:11:17 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:24:15 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
-int find_set (char const *set,char x)
+
+ int find_set (char const *set,char x)
 {
 	while(*set)
 	{

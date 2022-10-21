@@ -6,16 +6,17 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:39:05 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/16 15:48:29 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:59:31 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	nbr_words(char const *s, char c)
+static size_t	nbr_words(char const *s, char c)
 {
-	int i;
-	int word;
+	size_t i;
+	size_t word;
+	
 	i = 0;
 	word = 0;
 	while (s[i])
@@ -31,7 +32,8 @@ size_t	nbr_words(char const *s, char c)
 	}
 	return (word);
 }
-void next_word(const char *s,size_t *begin,size_t *end,char c)
+
+static void next_word(const char *s,size_t *begin,size_t *end,char c)
 {
 		while (s[*begin] == c)
 			(*begin)++;
@@ -40,7 +42,18 @@ void next_word(const char *s,size_t *begin,size_t *end,char c)
 			(*end)++;
 }
 
-
+static char **free_strings(char **str)
+{
+	int i;
+	
+	i = 0;
+	while (str[i])
+	{
+		free (str[i++]);
+	}
+	free (str);
+	return (NULL);
+}
 char	**ft_split(char const *s, char c)
 {
 	char	**strings;
@@ -48,9 +61,9 @@ char	**ft_split(char const *s, char c)
 	size_t	end;
 	size_t	i;
 
-	if (!s || !c)
+	if (s == NULL)
 		return (NULL);
-	strings = malloc((nbr_words(s, c) + 1) * sizeof(char *));
+	strings = (char **) malloc((nbr_words(s,c) + 1) * sizeof(char *));
 	if (!strings)
 		return (NULL);
 	begin = 0;
@@ -59,26 +72,12 @@ char	**ft_split(char const *s, char c)
 	while (i < nbr_words(s, c))
 	{
 		next_word(s, &begin, &end,c);
-		strings[i++] = ft_substr(s, begin, (end - begin));
-		if (strings[i - 1] == NULL)
-			free(strings[i - 1]);
+		strings[i] = ft_substr(s, begin, (end - begin));
+		if(!strings[i])
+			return (free_strings(strings));
+		i++;
 		begin = end;
 	}
 	strings[i] = NULL;
 	return (strings);
-}
-int main ()
-{
-
-	char *s =",,,ab,,cd,gh";
-	char **split;
-	size_t i;
-	i = 0;
-	split = ft_split(s,',');
-	while (split[i])
-	{
-		printf("%s \n",split[i]);
-		i++;
-	}
-
 }

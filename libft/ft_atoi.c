@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasserao <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:17:31 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/11 20:17:38 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/20 19:31:06 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int ft_atoi(const char *str)
 {
-	long int result;
-	int sign;
+	unsigned long long  result;
+	int  sign;
+	
 	result = 0;
 	sign = 1;
 	while (*str == ' ' || *str == '\t' || *str == '\v' || *str == '\n' || *str == '\f' || *str == '\r')
@@ -25,13 +27,21 @@ int ft_atoi(const char *str)
 	{
 		if(*str == '-')
 			sign *= -1;
-			str++;
+		str++;
 	}
 	while (*str && *str >='0' && *str <='9')
 	{
 		result = result * 10 + *str - '0';
+		if (result > 9223372036854775807ull && sign == 1)
+			return -1;
+		if (result > 9223372036854775808ull )
+			return 0;
 		str++;
 	}
 	return (result * sign);
 }
-
+// int main()
+// {
+// 	printf("%d\n",ft_atoi(NULL));
+// 	printf("%d\n",atoi("9223372054775808"));
+// }

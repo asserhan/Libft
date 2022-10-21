@@ -6,11 +6,11 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:37:15 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/08 15:40:59 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:04:48 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
+#include "libft.h"
 void	*ft_memmove(void *dst, const void *src, size_t len)
 
 {
@@ -37,19 +37,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-/*int main()
-{
-	int i;
-	//int j;
-	//j=0;
-	i=0;
-	int tab[6] ={0,1,2,3,4};
-	int tab2[6]={10,50000,12,131,14};
-	ft_memmove (tab,tab2 , 20);
-	while (i < 5)
-	{
-		printf ("%d\t",tab[i]);
-		i++;
-	}
-	printf("\n");
-}*/

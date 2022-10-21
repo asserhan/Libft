@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 10:09:13 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/17 17:31:53 by hasserao         ###   ########.fr       */
+/*   Created: 2022/10/20 10:07:28 by hasserao          #+#    #+#             */
+/*   Updated: 2022/10/20 10:42:41 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_strjoin(char const *s1, char const *s2)
+#include <sys/types.h>
+#include <sys/stat.h> // mode header
+#include <fcntl.h> //open header
+void    ft_putnbr_fd(int n, int fd)
 {
-	char *p;
-	size_t len ;
-	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) ;
-	p = (char *)malloc(len + 1 * sizeof(char));
-	if(!p)
-		return (NULL);
-	else
-		ft_strlcpy(p,s1,ft_strlen(s1)+1); //strlcpy copies up to dstsize - 1 characters
-		ft_strlcat(p,s2,len+1);
-	return (p);
+    long int z;
+    z = n;
+    if (z < 0)
+    {
+        ft_putchar_fd('-',fd);
+        z = -z;
+    }
+    if (z < 10)
+    {
+        ft_putchar_fd(z + 48 , fd);
+    }
+    else
+    {
+        ft_putnbr_fd(z / 10,fd);
+        ft_putnbr_fd(z % 10,fd);
+    }
 }
-
