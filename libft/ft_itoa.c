@@ -6,34 +6,34 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:09:15 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/19 14:14:21 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:18:38 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdlib.h"
 
-static int	n_len (long n)
+static int	n_len(long n)
 {
-    int len;
+	int	len;
 
-    len = 0;
-    if ( n < 0)
-        len++;
-    if (n == 0)
-        len = 1;
-    while (n)
-    {
-        n /= 10;
-        len++;
-    }
-    return (len);
+	len = 0;
+	if (n < 0)
+		len++;
+	if (n == 0)
+		len = 1;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
 }
+
 char	*ft_itoa(int n)
 {
-    char *str;
-    int length;
-	long nb;
+	char	*str;
+	int		length;
+	long	nb;
 
 	nb = n;
 	length = n_len(n);

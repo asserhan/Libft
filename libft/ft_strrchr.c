@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:15:59 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/21 12:17:26 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:14:35 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *p;
+	char	*p;
 
 	p = NULL;
 	while (*s)
 	{
-		if (*(char *)s!= (char)c)
-		 	s++;
+		if (*(char *)s != (char)c)
+			s++;
 		else
 		{
 			p = (char *)s;

@@ -6,41 +6,40 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:11:11 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/20 14:24:15 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:17:47 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
- int find_set (char const *set,char x)
+int	find_set(char const *set, char x)
 {
-	while(*set)
+	while (*set)
 	{
-		if(*set == x)
-			return(1);
+		if (*set == x)
+			return (1);
 		set++;
 	}
-	return(0);
+	return (0);
 }
-char    *ft_strtrim(char const *s1, char const *set)
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t i;
-	size_t j;
-	char *p;
-    if(!s1 || !set)
-        return(NULL);
+	size_t	i;
+	size_t	j;
+	char	*p;
+
+	if (!s1 || !set)
+		return (NULL);
 	else
 	{
-		i= 0;
+		i = 0;
 		j = ft_strlen (s1) - 1;
-		
-		while (s1[i] && find_set(set,s1[i]))
+		while (s1[i] && find_set(set, s1[i]))
 				i++;
-		while(s1[j] && find_set(set,s1[j]))
+		while (s1[j] && find_set(set, s1[j]))
 				j--;
-		p = ft_substr(s1,i,(j - i) + 1);//+1 :->'\0'
+		p = ft_substr(s1, i, (j - i) + 1);
 	}
 	return (p);
 }
-
-

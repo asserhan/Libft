@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 21:28:28 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/20 00:13:15 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:09:03 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    char *p;
-	size_t i;
-	
-    if (!s || !f)
-        return (NULL);
+	char	*p;
+	size_t	i;
+
+	if (!s || !f)
+		return (NULL);
 	p = ft_strdup(s);
 	if (!p)
 		return (NULL);
 	else
 	{
 	i = 0;
-	while (s[i])
-	{
-		p[i] = f(i,s[i]);
-		i++;
-	}
-	p[i] = '\0';
+		while (s[i])
+		{
+			p[i] = f(i, s[i]);
+			i++;
+		}
+		p[i] = '\0';
 	}
 	return (p);
 }

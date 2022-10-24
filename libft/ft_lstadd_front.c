@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:23:22 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/21 16:59:24 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:39:08 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if(lst && new)
+	if (lst && new)
 	{
 		new -> next = *lst;
 		*lst = new;

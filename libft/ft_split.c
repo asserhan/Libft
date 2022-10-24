@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:39:05 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/21 14:59:31 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:31:39 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static size_t	nbr_words(char const *s, char c)
 {
-	size_t i;
-	size_t word;
-	
+	size_t	i;
+	size_t	word;
+
 	i = 0;
 	word = 0;
 	while (s[i])
@@ -33,19 +33,19 @@ static size_t	nbr_words(char const *s, char c)
 	return (word);
 }
 
-static void next_word(const char *s,size_t *begin,size_t *end,char c)
+static void	next_word(const char *s, size_t *begin, size_t *end, char c)
 {
-		while (s[*begin] == c)
+	while (s[*begin] == c)
 			(*begin)++;
 		*end = *begin;
-		while (s[*end] && s[*end] != c)
+	while (s[*end] && s[*end] != c)
 			(*end)++;
 }
 
-static char **free_strings(char **str)
+static char	**free_strings(char **str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (str[i])
 	{
@@ -54,6 +54,7 @@ static char **free_strings(char **str)
 	free (str);
 	return (NULL);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**strings;
@@ -63,7 +64,7 @@ char	**ft_split(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	strings = (char **) malloc((nbr_words(s,c) + 1) * sizeof(char *));
+	strings = (char **) malloc((nbr_words(s, c) + 1) * sizeof(char *));
 	if (!strings)
 		return (NULL);
 	begin = 0;
@@ -71,9 +72,9 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < nbr_words(s, c))
 	{
-		next_word(s, &begin, &end,c);
+		next_word(s, &begin, &end, c);
 		strings[i] = ft_substr(s, begin, (end - begin));
-		if(!strings[i])
+		if (!strings[i])
 			return (free_strings(strings));
 		i++;
 		begin = end;

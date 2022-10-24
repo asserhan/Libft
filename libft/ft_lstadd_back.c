@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:45:26 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/21 18:58:54 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:38:40 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *last;
-	
-	if(!lst  && !new)
+	t_list	*last;
+
+	if (!lst && !new)
 		return ;
 	last = *lst;
 	if (*lst == NULL)

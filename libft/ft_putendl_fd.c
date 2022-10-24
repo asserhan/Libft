@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 23:36:51 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/20 10:04:49 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:56:03 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	size_t len;
+	size_t	len;
+
 	if (s != NULL)
 	{
-		len =ft_strlen(s);
-		write(fd,s,len);
+		len = ft_strlen(s);
+		write(fd, s, len);
 	}
-	ft_putchar_fd('\n',fd);
+	ft_putchar_fd('\n', fd);
 }

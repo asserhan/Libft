@@ -6,7 +6,7 @@
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:43:21 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/21 12:22:37 by hasserao         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:48:21 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *new_node;
+	t_list	*new_node;
+
 	new_node = malloc (sizeof(t_list));
 	if (!new_node)
 		return (NULL);
 	new_node->content = content;
 	new_node->next = NULL;
-	
 	return (new_node);
 }
