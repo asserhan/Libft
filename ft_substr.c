@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 15:47:01 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/24 16:10:47 by hasserao         ###   ########.fr       */
+/*   Created: 2022/10/12 20:55:25 by hasserao          #+#    #+#             */
+/*   Updated: 2023/01/15 17:08:23 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
-t_list	*ft_lstlast(t_list *lst)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (!lst)
+	char	*p;
+	size_t	len_s;
+
+	if (!s)
 		return (NULL);
-	while (lst -> next)
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	else
 	{
-		lst = lst -> next;
+		if (start == 0)
+			len_s = ft_strlen(s);
+		else
+			len_s = ft_strlen(s + start);
 	}
-	return (lst);
+	if (len >= len_s)
+		len = len_s;
+	p = (char *)malloc((len + 1) * sizeof (char));
+	if (!p)
+		return (NULL);
+	else
+		ft_strlcpy(p, s + start, len + 1);
+	return (p);
 }

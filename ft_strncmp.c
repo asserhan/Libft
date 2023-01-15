@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 10:57:55 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/24 10:42:49 by hasserao         ###   ########.fr       */
+/*   Created: 2022/10/10 19:34:46 by hasserao          #+#    #+#             */
+/*   Updated: 2023/01/15 16:40:27 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (n > 0)
+	while ((*(unsigned char *)s1 || *(unsigned char *)s2) && i < n)
 	{
-		((char *)s)[i++] = '\0';
-		n--;
+		if (*(unsigned char *)s1 > *(unsigned char *)s2)
+			return (*(unsigned char *)s1 - *(unsigned char *)s2);
+		else
+			if (*(unsigned char *)s1 < *(unsigned char *)s2)
+				return (*(unsigned char *)s1 - *(unsigned char *)s2);
+		s1++;
+		s2++;
+		i++;
 	}
+	return (0);
 }

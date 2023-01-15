@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 17:21:06 by hasserao          #+#    #+#             */
-/*   Updated: 2022/10/25 16:35:59 by hasserao         ###   ########.fr       */
+/*   Created: 2022/10/12 18:15:47 by hasserao          #+#    #+#             */
+/*   Updated: 2023/01/15 16:58:24 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*ft_strdup(const char *s1)
 {
-	size_t	len;
+	char	*p;
+	size_t	size ;
 
-	if (s != NULL)
-	{
-		len = ft_strlen(s);
-		write(fd, s, len);
-	}
+	size = ft_strlen(s1) + 1;
+	p = (char *)malloc (size * sizeof(char));
+	if (!p)
+		return (NULL);
+	else
+		ft_memcpy(p, s1, size);
+	return (p);
 }
