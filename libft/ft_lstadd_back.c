@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasserao <hasserao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 18:02:42 by hasserao          #+#    #+#             */
-/*   Updated: 2023/01/15 16:58:29 by hasserao         ###   ########.fr       */
+/*   Created: 2022/10/21 16:45:26 by hasserao          #+#    #+#             */
+/*   Updated: 2022/10/25 17:16:47 by hasserao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
-	size_t	src_len;
+	t_list	*last;
 
-	i = 0;
-	src_len = ft_strlen(src);
-	if (dstsize > 0)
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
 	{
-		while (src[i] && i < dstsize - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		*lst = new;
 	}
-	return (src_len);
+	else
+	{
+		last = *lst;
+		while (last -> next != NULL)
+			last = last -> next;
+		last -> next = new;
+	}
 }
